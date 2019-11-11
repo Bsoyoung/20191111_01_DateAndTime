@@ -1,10 +1,12 @@
 package com.example.a20191111_01_dateandtime.adapters
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.example.a20191111_01_dateandtime.R
 import com.example.a20191111_01_dateandtime.datas.ScheduleType
 
@@ -26,6 +28,20 @@ class ScheduleTypeSpinnerAdapter(context:Context,res:Int,list:ArrayList<Schedule
 
         var row = tempRow!!
 
+        var summaryTxt = row.findViewById<TextView>(R.id.summaryTxt)
+        var typeTxt = row.findViewById<TextView>(R.id.typeTxt)
+
+
+        var data = mList.get(position)
+        var splitStr = data.title.split(" ")
+
+        typeTxt.text = data.title
+        summaryTxt.text = splitStr.get(0)
+
+        summaryTxt.setBackgroundColor(Color.parseColor("#000000"))
+
+
+
 
 
         return row
@@ -40,6 +56,18 @@ class ScheduleTypeSpinnerAdapter(context:Context,res:Int,list:ArrayList<Schedule
         }
 
         var row = tempRow!!
+
+
+        var summaryTxt = row.findViewById<TextView>(R.id.summaryTxt)
+        var typeTxt = row.findViewById<TextView>(R.id.typeTxt)
+
+        var data = mList.get(position)
+
+        var splitStr = data.title.split(" ")
+
+        typeTxt.text = data.title
+        summaryTxt.text = splitStr.get(0)
+        summaryTxt.setBackgroundColor(Color.parseColor("#000000"))
 
 
 
