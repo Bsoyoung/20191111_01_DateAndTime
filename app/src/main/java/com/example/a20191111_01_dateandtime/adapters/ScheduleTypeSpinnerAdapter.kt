@@ -20,10 +20,8 @@ class ScheduleTypeSpinnerAdapter(context:Context,res:Int,list:ArrayList<Schedule
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var tempRow = convertView
-
-        if(tempRow==null)
-        {
-            tempRow = inf.inflate(R.layout.schedule_type_view_item,null)
+        if (tempRow == null) {
+            tempRow = inf.inflate(R.layout.schedule_type_view_item, null)
         }
 
         var row = tempRow!!
@@ -31,32 +29,26 @@ class ScheduleTypeSpinnerAdapter(context:Context,res:Int,list:ArrayList<Schedule
         var summaryTxt = row.findViewById<TextView>(R.id.summaryTxt)
         var typeTxt = row.findViewById<TextView>(R.id.typeTxt)
 
-
         var data = mList.get(position)
+
         var splitStr = data.title.split(" ")
 
         typeTxt.text = data.title
+
         summaryTxt.text = splitStr.get(0)
-
-        summaryTxt.setBackgroundColor(Color.parseColor("#000000"))
-
+        summaryTxt.setBackgroundColor(Color.parseColor(data.color))
 
 
-
-
-        return row
+        return  row
     }
 
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
         var tempRow = convertView
-
-        if(tempRow==null)
-        {
-            tempRow = inf.inflate(R.layout.schedule_type_list_item,null)
+        if (tempRow == null) {
+            tempRow = inf.inflate(R.layout.schedule_type_list_item, null)
         }
 
         var row = tempRow!!
-
 
         var summaryTxt = row.findViewById<TextView>(R.id.summaryTxt)
         var typeTxt = row.findViewById<TextView>(R.id.typeTxt)
@@ -67,11 +59,14 @@ class ScheduleTypeSpinnerAdapter(context:Context,res:Int,list:ArrayList<Schedule
 
         typeTxt.text = data.title
         summaryTxt.text = splitStr.get(0)
-        summaryTxt.setBackgroundColor(Color.parseColor("#000000"))
+        summaryTxt.setBackgroundColor(Color.parseColor(data.color))
 
 
 
-        return row
+        return  row
     }
+
+
+
 
 }
