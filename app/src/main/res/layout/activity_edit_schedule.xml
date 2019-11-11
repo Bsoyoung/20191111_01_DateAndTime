@@ -45,6 +45,12 @@
             android:spinnerMode="dialog"
             android:layout_height="wrap_content"/>
 
+        <Spinner
+            android:layout_marginTop="20dp"
+            android:id="@+id/scheduleTypeSpinner"
+            android:layout_width="match_parent"
+            android:spinnerMode="dialog"
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_marginTop="15dp"

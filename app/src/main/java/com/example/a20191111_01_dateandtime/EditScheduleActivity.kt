@@ -6,6 +6,7 @@ import android.app.TimePickerDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.Toast
+import com.example.a20191111_01_dateandtime.adapters.ScheduleTypeSpinnerAdapter
 import com.example.a20191111_01_dateandtime.datas.ScheduleType
 import kotlinx.android.synthetic.main.activity_edit_schedule.*
 import java.text.SimpleDateFormat
@@ -16,6 +17,7 @@ class EditScheduleActivity : BaseActivity() {
     //시작 일자 / 시간을 모두 저장하고 있는 캘린더 변수.
     var startDateTimeCalendar = Calendar.getInstance()
     var scheduleTypeList = ArrayList<ScheduleType>()
+    var scheduleTypeSpinnerAdapter:ScheduleTypeSpinnerAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,6 +85,9 @@ class EditScheduleActivity : BaseActivity() {
     override fun setValues() {
 
         addSceduleTypes()
+        scheduleTypeSpinnerAdapter = ScheduleTypeSpinnerAdapter(this,scheduleTypeList)
+        scheduleTypeSpinner.adapter = scheduleTypeSpinnerAdapter
+
     }
 
     fun addSceduleTypes(){
